@@ -1,0 +1,68 @@
+form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 30%;
+  max-width: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+form div {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+form input:not([type='submit']) {
+  padding: 6px 12px;
+  border: 2px solid black;
+  outline: none;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+form input[type='submit'] {
+  border-radius: 20px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 70%;
+  color: white;
+  text-align: center;
+  padding: 12px 0;
+  font-weight: bold;
+  background-image: linear-gradient( 104.1deg,  rgba(0,61,100,1) 13.6%, rgba(47,127,164,1) 49.4%, rgba(30,198,198,1) 93.3% );
+}
+
+form input[type='submit']:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+.register-link {
+  color: black;
+  padding: none;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .addRecordForm {
+    min-width: 50%;
+    max-width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .addRecordForm {
+    min-width: 80%;
+    max-width: 100%; 
+  }
+}

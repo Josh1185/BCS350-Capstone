@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration</title>
+  <link rel="stylesheet" href="general.css">
+  <link rel="stylesheet" href="form.css">
+  <script>
+    // "I certify that this submission is my own original work" - Josh Iehle
+
+    function validate(form) {
+      let fail = "";
+
+      fail = validateUsername(form.username.value);
+      fail += validateEmail(form.email.value);
+      fail += validatePassword(form.password.value);
+      fail += validateConfirmPassword(form.confirmPassword.value, form.password.value);
+
+      if (fail === "") {
+        return true;
+      } else {
+        alert(fail);
+        return false;
+      }
+    }
+
+    function validateUsername(field) {
+      if (field === "") {
+        return "No Username was entered.\n";
+      }
+      else if (field.length < 6) {
+        return "Username must contain at least 6 characters.\n";
+      } 
+      else {
+        return "";
+      }
+    }
+
+    function validateEmail(field) {
+      if (field === "") {
+        return "No Email was entered.\n";
+      }
+      else if (
+        !((field.indexOf(".") > 0) && 
+        (field.indexOf("@") > 0)) ||
+        /[^a-zA-Z0-9.@_-]/.test(field)
+      ) {
+        return "Email address is invalid.\n";
+      }
+      else {
+        return "";
+      }
+    }
+
+    function validatePassword(field) {
+      if (field === "") {
+        return "No Password was entered.\n";
+      }
+      else if (field.length < 8) {
+        return "Password must be at least 8 characters.\n";
+      }
+      else if (
+        !/[a-z]/.test(field) ||
+        !/[A-Z]/.test(field) ||
+        !/[0-9]/.test(field)
+      ) {
+        return "Password must contain one of each: a-z, A-Z, and 0-9.\n";
+      }
+      else {
+        return "";
+      }
+    }
+
+    function validateConfirmPassword(confirmField, pwdField) {
+      return (confirmField !== pwdField) ? "Password and Confirm Password fields must match.\n" : "";
+    }
+  </script>
+</head>
+<body>
+  
+  <h1>Register new user</h1>
+
+  <form action="registrationProcess.php" method="POST" onsubmit="return validate(this)">
+    <div>
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter username">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email" placeholder="Enter email">
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter password">
+    </div>
+    <div>
+      <label for="confirmPassword">Confirm Password</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password">
+    </div>
+    <p class="register-link">Already have an account? <a href="login.php">Login</a></p>
+    <input type="submit" value="Register">
+  </form>
+</body>
+</html>
