@@ -1,6 +1,8 @@
 # BCS350-Capstone
 A dynamic web database application created with PHP for server-side, HTML for basic structure, CSS for styling, JavaScript for client-side validation, and MySQL for the database.
 
+Demo Video: https://youtu.be/oFdZbjP5P4g 
+
 Development Stack:
 - XAMPP
 
